@@ -16,15 +16,15 @@ for i in range(320):
         for o in range(320):
             if(o%2==0):
                 threshimog[i][o]=0
-        blur = cv2.GaussianBlur(threshimog,(5,5),0)
+        blur = cv2.GaussianBlur(threshimog,(1,319),0)
     x=0
 
 cv2.imshow("threshimog",threshimog)
 cv2.imshow("gausianblur",blur)
-mask=cv2.subtract(threshimog,blur)
-cv2.imshow("mask1",mask)
-mask=cv2.add(mask,blur)
-mask=cv2.addWeighted(mask,0.5,mask,0.4,0)
+mask1=cv2.subtract(threshimog,blur)
+cv2.imshow("mask1",mask1)
+mask=cv2.add(mask1,blur)
+mask=cv2.addWeighted(mask1,0.8,mask,0.3,0)
 cv2.imshow("maskfinal",mask)
 
 
