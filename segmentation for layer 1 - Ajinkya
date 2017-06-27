@@ -1,0 +1,14 @@
+a = imread('L1.jpg'); 
+b = im2double(a);
+b = rgb2gray(b);
+level = graythresh(b); 
+c = im2bw(b , level);
+imshow(a);
+figure , imshow(c)
+m= imread('R1.jpg');
+n = im2double(m);
+l = rgb2gray(n);
+level = graythresh(l);
+x = im2bw(l , level);
+figure , imshow(m);
+figure , imshow(x)
