@@ -63,9 +63,9 @@ figure(7)
 imshow(g1,[])
 title('Ideal Band-Reject Filter')
 
-figure(99)
-imshow(mat2gray(myfilter))
-title('Ideal Bandreject filter')
+%figure(99)
+%imshow(mat2gray(myfilter))
+%title('Ideal Bandreject filter')
 
 
 %%Butterworth
@@ -96,9 +96,9 @@ figure(8)
 imshow(g2,[])
 title('Butterworth Band-Reject Filter')
  
-figure(100)
-imshow(mat2gray(myfilter1))
-title('Butterworth Bandreject filter')
+%figure(100)
+%imshow(mat2gray(myfilter1))
+%title('Butterworth Bandreject filter')
 
 %%Gaussian
 
@@ -118,9 +118,9 @@ end
      G3 = myfilter2.*F;
 g3=abs(ifft2(G3));
 
-% figure(10)
-% imshow(g3, [])
-% title('Gaussian Band-Reject Filter')
+figure(10)
+imshow(g3, [])
+title('Gaussian Band-Reject Filter')
 % 
 % figure(101)
 % imshow(mat2gray(myfilter2))
