@@ -4,9 +4,8 @@ imo=cv2.imread('3.jpg')
 cv2.imshow("imo",imo)
 imog=cv2.cvtColor(imo,cv2.COLOR_BGR2GRAY)
 x=0
-kernel=np.ones((3,3),np.uint8)
 
-ret,threshimog = cv2.threshold(imog,10,255,cv2.THRESH_TOZERO)
+ret,threshimog = cv2.threshold(imog,40,255,cv2.THRESH_TOZERO)
 cv2.imshow("threshimoga",threshimog)
 print(imog.size)
 for i in range(320):
@@ -19,13 +18,12 @@ for i in range(320):
         blur = cv2.GaussianBlur(threshimog,(1,319),0)
     x=0
 
-cv2.imshow("threshimog",threshimog)
-cv2.imshow("gausianblur",blur)
 mask1=cv2.subtract(threshimog,blur)
-cv2.imshow("mask1",mask1)
 mask=cv2.add(mask1,blur)
 mask=cv2.addWeighted(mask1,0.8,mask,0.3,0)
-cv2.imshow("maskfinal",mask)
-
+masky=cv2.medianBlur(mask,3)
+masky=cv2.addWeighted(masky,1.2,mask,0.6,0)
+cv2.imshow("final",masky)
 
 cv2.waitKey(0)
+
